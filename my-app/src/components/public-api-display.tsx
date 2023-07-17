@@ -17,6 +17,7 @@ function PublicApiDisplay({category}:PublicApiDisplayInterface) {
             }).catch(err => {
                 throw new Error(err);
             });
+        console.log(PublicApiManager.getAPIsByCategories());
 
     }, []);
 
