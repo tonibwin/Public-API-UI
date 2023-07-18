@@ -5,7 +5,7 @@ import PublicApiDisplay from "./components/public-api-display";
 function App() {
   return (
     <div className="App">
-        <PublicApiDisplay category="Business"/>
+        <PublicApiDisplay/>
     </div>
   );
 }

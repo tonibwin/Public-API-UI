@@ -11,6 +11,14 @@ class PublicApiService {
         })
     }
 
+    public static async getEntries(){
+        return await fetch(`https://api.publicapis.org/entries`).then(response => {
+            return response.json() as Promise<EntriesWrapper>;
+        }).catch((err) => {
+            throw new Error(err);
+        })
+    }
+
     public static async getCategories(){
         return await fetch(`https://api.publicapis.org/categories`).then(response => {
             return response.json() as Promise<CategoriesWrapper>;
