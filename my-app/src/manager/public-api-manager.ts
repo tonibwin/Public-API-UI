@@ -1,7 +1,6 @@
 import PublicApiService from "../services/public-api-service";
 import Entry from "../dtos/entry";
 import InformationCardInterface from "../interfaces/information-card-interface";
-import CategoriesWrapper from "../dtos/categories-wrapper";
 import EntriesWrapper from "../dtos/entries-wrapper";
 
 
@@ -57,7 +56,11 @@ class PublicApiManager {
         let infoCards: InformationCardInterface[] = [];
         entries.forEach(entry => {
             let infoCard: InformationCardInterface = {
-                info:[{key:'Name', showKey:false, value: entry.API, variant: 'h5'}, {key:'Description', showKey:false, value: entry.Description, variant: 'subtitle1'}],
+                info:[
+                    {key:'Name', showKey:false, showValue:true, value: entry.API, variant: 'h5'},
+                    {key:'Description', showKey:false, showValue:true, value: entry.Description, variant: 'subtitle1'},
+                    {key:'Category', showKey:false, showValue:false, value: entry.Category, variant: 'subtitle1'}
+                ],
                 link: entry.Link
             };
             infoCards.push(infoCard);

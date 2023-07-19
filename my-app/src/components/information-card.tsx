@@ -15,9 +15,10 @@ function InformationCard({info, link}: InformationCardInterface) {
                             <Typography variant={i.variant} component="div">
                                 {i.key}
                             </Typography> :
-                            <Typography variant={i.variant}>
-                                {i.value}
-                            </Typography>
+                            i.showValue ?
+                                <Typography variant={i.variant}>
+                                    {i.value}
+                                </Typography> : ""
                         }
                     </CardContent>
                 ))}
