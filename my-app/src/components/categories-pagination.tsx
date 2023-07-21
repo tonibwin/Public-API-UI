@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import PublicApiManager from "../manager/public-api-manager";
 import Grid from "@mui/material/Grid";
-import {Button, IconButton} from "@mui/material";
+import { IconButton } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import Button from '@material-ui/core/Button';
+
 
 interface DispatchCategory {
     "selectedCategory": string;
@@ -66,11 +68,6 @@ function CategoriesPagination({selectedCategory, setSelectedCategory}: DispatchC
         }
     }
 
-    const categorySelected = function(category: string) {
-        setSelectedCategory(category);
-
-    }
-
     return (
         <div>
             {pages[pageNumber - 1] &&
@@ -82,7 +79,11 @@ function CategoriesPagination({selectedCategory, setSelectedCategory}: DispatchC
                     </Grid>
                     {pages[pageNumber - 1].map(category => (
                         <Grid item md={1}>
-                            <Button variant={selectedCategory == category ? outlineVariant : textVariant} onClick={() => categorySelected(category)}>{category}</Button>
+                            <Button color="primary"
+                                    variant={selectedCategory == category && category != "" ? outlineVariant : textVariant}
+                                    onClick={() => setSelectedCategory(category)}>
+                                    {category}
+                            </Button>
                         </Grid>
                     ))}
                     <Grid item md={1}>
